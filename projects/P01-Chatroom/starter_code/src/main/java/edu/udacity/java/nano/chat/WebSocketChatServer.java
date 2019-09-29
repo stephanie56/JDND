@@ -15,6 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 
 @Component
+/** We declare a Java class WebSocket server endpoint by annotating it with @ServerEndpoint.
+ *  We also specify the URI where the endpoint is deployed.
+ * */
 @ServerEndpoint("/chat")
 public class WebSocketChatServer {
 
@@ -32,6 +35,7 @@ public class WebSocketChatServer {
      */
     @OnOpen
     public void onOpen(Session session) {
+        // When a user just join the chat room
         //TODO: add on open connection.
     }
 
@@ -40,6 +44,7 @@ public class WebSocketChatServer {
      */
     @OnMessage
     public void onMessage(Session session, String jsonStr) {
+        // WebSocketChatServer.sendMessageToAll(jsonStr)
         //TODO: add send message.
     }
 
