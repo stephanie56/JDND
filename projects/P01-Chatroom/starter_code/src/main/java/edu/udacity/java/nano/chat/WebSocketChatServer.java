@@ -35,17 +35,17 @@ public class WebSocketChatServer {
      */
     @OnOpen
     public void onOpen(Session session) {
-        // When a user just join the chat room
         //TODO: add on open connection.
     }
 
     /**
      * Send message, 1) get username and session, 2) send message to all.
+     * jsonStr: the serialized message object sent by client, with username and message value
      */
     @OnMessage
-    public void onMessage(Session session, String jsonStr) {
-        // WebSocketChatServer.sendMessageToAll(jsonStr)
+    public String onMessage(Session session, String jsonStr) {
         //TODO: add send message.
+        return jsonStr;
     }
 
     /**

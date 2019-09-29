@@ -35,7 +35,6 @@ public class WebSocketChatApplication {
         //Add code for login to chat room.
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("username", username);
-        model.put("numberOfUsers", 2);
         return new ModelAndView("/chat", model);
     }
 }

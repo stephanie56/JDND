@@ -57,18 +57,11 @@
                 <div class="mdui-chip">
                     <span class="mdui-chip-icon mdui-color-blue">
                         <i class="mdui-icon material-icons">face</i></span>
-                    <span class="mdui-chip-title">Online Users <span th:text="${numberOfUsers}"></span></span>
+                    <span class="mdui-chip-title">Online Users <span class="chat-num"></span></span>
                     <!-- TODO: check online number num -->
                 </div>
                 <!-- TODO: add a message container -->
-                <div class="mdui-card" style="padding: 16px; margin: 8px 0;">
-                    <span th:text="${username}">username</span>:
-                    <span>hello world</span>
-                </div>
-                <div class="mdui-card" style="padding: 16px; margin: 8px 0;">
-                    <span th:text="${username}">username</span>:
-                    <span>hello world 2</span>
-                </div>
+                <div class="message-container"></div>
             </div>
 
         </div>
@@ -85,9 +78,9 @@
      */
     function getWebSocket() {
         /**
-         * WebSocket client PS：URL shows WebSocket protocal, port number, and then end point.
+         * WebSocket client PS：URL shows WebSocket protocol, port number, and then end point.
          */
-        var webSocket = new WebSocket(/*[[${webSocketUrl}]]*/ 'ws://localhost:8080/chat');
+        var webSocket = new WebSocket('ws://localhost:8080/chat');
         /**
          * websocket open connection.
          */
@@ -103,7 +96,7 @@
             //Receive Message from Server
             var message = JSON.parse(event.data) || {};
             var $messageContainer = $('.message-container');
-            if (message.type === 'SPEAK') {
+            if (message.type !== 'SPEAK') {
                 $messageContainer.append(
                     '<div class="mdui-card" style="margin: 10px 0;">' +
                     '<div class="mdui-card-primary">' +
